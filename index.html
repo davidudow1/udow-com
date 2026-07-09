@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>David Udow — Entrepreneur & Operator</title>
+  <meta name="description" content="Serial entrepreneur and operator with 30+ years founding, acquiring, and building businesses in BC. Co-founder of Ziptrek Ecotours. Actively seeking next acquisition." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1B3F7A;
+      --navy-light: #2251a3;
+      --text: #111827;
+      --text-mid: #374151;
+      --text-muted: #6B7280;
+      --border: #E5E7EB;
+      --bg: #FFFFFF;
+      --bg-soft: #F9FAFB;
+      --rule: #D1D5DB;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      font-size: 17px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .nav-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .nav-name {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--text);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--navy); }
+
+    .nav-cta {
+      font-size: 14px !important;
+      font-weight: 600 !important;
+      color: var(--navy) !important;
+      border: 1.5px solid var(--navy);
+      border-radius: 6px;
+      padding: 6px 16px;
+      transition: background 0.15s, color 0.15s !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--navy) !important;
+      color: #fff !important;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 96px 2rem; }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      padding-top: 100px;
+      padding-bottom: 100px;
+      background: var(--bg);
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .hero-logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+    }
+
+    .hero-eyebrow-text {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .hero-name {
+      font-size: clamp(44px, 8vw, 72px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.0;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+
+    .hero-tagline {
+      font-size: clamp(20px, 3vw, 26px);
+      font-weight: 300;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+      line-height: 1.35;
+      margin-bottom: 36px;
+      max-width: 600px;
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      color: var(--text-mid);
+      max-width: 580px;
+      line-height: 1.7;
+    }
+
+    .hero-divider {
+      width: 48px;
+      height: 3px;
+      background: var(--navy);
+      margin-top: 44px;
+      border-radius: 2px;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--bg-soft);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+
+    .section-heading {
+      font-size: clamp(28px, 4vw, 38px);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 32px;
+    }
+
+    .prose p {
+      color: var(--text-mid);
+      margin-bottom: 20px;
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    .prose p:last-child { margin-bottom: 0; }
+
+    .prose strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .career-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+      padding-top: 40px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .career-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .career-company {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .career-role {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .career-years {
+      font-size: 13px;
+      color: var(--navy);
+      font-weight: 500;
+    }
+
+    /* ── LOOKING FOR ── */
+    #looking-for { background: var(--bg); }
+
+    .criteria-grid {
+      display: grid;
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .criterion {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 20px 24px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--bg);
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    .criterion:hover {
+      border-color: var(--navy);
+      box-shadow: 0 2px 12px rgba(27, 63, 122, 0.08);
+    }
+
+    .criterion-icon {
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(27, 63, 122, 0.08);
+      border-radius: 6px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .criterion-icon svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--navy);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .criterion-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .criterion-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .lf-intro {
+      font-size: 18px;
+      color: var(--text-mid);
+      line-height: 1.7;
+      margin-bottom: 8px;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--navy);
+      color: #fff;
+    }
+
+    #contact .section-label { color: rgba(255,255,255,0.5); }
+
+    #contact .section-heading { color: #fff; }
+
+    .contact-body {
+      font-size: 18px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 40px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      transition: all 0.15s;
+    }
+
+    .contact-link-email {
+      background: #fff;
+      color: var(--navy);
+    }
+
+    .contact-link-email:hover {
+      background: rgba(255,255,255,0.9);
+      transform: translateY(-1px);
+    }
+
+    .contact-link-linkedin {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.3);
+    }
+
+    .contact-link-linkedin:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-1px);
+    }
+
+    .contact-link svg {
+      width: 17px;
+      height: 17px;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 24px 2rem;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { display: none; }
+      section { padding: 64px 1.25rem; }
+      #hero { padding-top: 64px; padding-bottom: 64px; }
+      .career-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-brand">
+      <svg class="nav-logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <circle fill="#1B3F7A" cx="100" cy="100" r="100"/>
+        <text x="46.7" y="149" fill="#FFFFFF" font-family="Arial Black, Arial" font-weight="900" font-size="128">U</text>
+      </svg>
+      <span class="nav-name">David Udow</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#looking-for">What I'm Looking For</a></li>
+      <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-eyebrow">
+        <svg class="hero-logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <circle fill="#1B3F7A" cx="100" cy="100" r="100"/>
+          <text x="46.7" y="149" fill="#FFFFFF" font-family="Arial Black, Arial" font-weight="900" font-size="128">U</text>
+        </svg>
+        <span class="hero-eyebrow-text">Udow Ventures</span>
+      </div>
+      <h1 class="hero-name">David Udow</h1>
+      <p class="hero-tagline">Serial entrepreneur. Proven operator.<br>Looking to acquire my next business.</p>
+      <p class="hero-sub">Thirty years founding, acquiring, and building businesses across BC. I take well-run companies and make them significantly better — through systems, culture, and customer experience.</p>
+      <div class="hero-divider"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="section-label">About</div>
+      <h2 class="section-heading">Operator. Builder. Acquirer.</h2>
+      <div class="prose">
+        <p>
+          In 2000, I co-founded <strong>Ziptrek Ecotours</strong> in Whistler from scratch — no infrastructure, no playbook, no team. We built it into one of the most recognized adventure tourism brands in North America. By the time I transitioned to the board in 2012, the company had grown to over 100 seasonal employees and was running profitably without daily founder involvement. That's what I build toward: organizations that run well without depending on any single person. I remain an active Board Director and shareholder today.
+        </p>
+        <p>
+          In 2014, I acquired <strong>Pink Solution</strong>, an eco-friendly consumer cleaning brand sold nationally across Canada. I rebuilt the operating model, tripled revenue through product expansion and channel development, and executed a full exit in 2021.
+        </p>
+        <p>
+          Most recently, I served as Integrator (COO) at <strong>Jetstream Hospitality Solutions</strong>, a Vancouver-based hospitality SaaS company, where I owned all operational functions during a period of restructuring and sale preparation. I built company-wide accountability systems, rebuilt customer onboarding, and led the team through a sustained period of margin improvement.
+        </p>
+        <p>
+          Through <strong>Udow Ventures</strong>, I now hold and manage this portfolio while actively seeking my next acquisition. My edge is making good organizations significantly better — not rescuing broken ones or building new ones from scratch.
+        </p>
+      </div>
+
+      <div class="career-grid">
+        <div class="career-item">
+          <span class="career-company">Ziptrek Ecotours</span>
+          <span class="career-role">Co-Founder · Board Director</span>
+          <span class="career-years">2000 – Present</span>
+        </div>
+        <div class="career-item">
+          <span class="career-company">Pink Solution</span>
+          <span class="career-role">President · Acquirer</span>
+          <span class="career-years">2014 – 2021</span>
+        </div>
+        <div class="career-item">
+          <span class="career-company">Jetstream Hospitality</span>
+          <span class="career-role">Integrator (COO)</span>
+          <span class="career-years">2023 – 2026</span>
+        </div>
+        <div class="career-item">
+          <span class="career-company">Udow Ventures</span>
+          <span class="career-role">Principal & Operator</span>
+          <span class="career-years">2012 – Present</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOOKING FOR -->
+  <section id="looking-for">
+    <div class="container">
+      <div class="section-label">What I'm Looking For</div>
+      <h2 class="section-heading">The right business to run and grow.</h2>
+      <p class="lf-intro">
+        I'm looking for a BC-based business to acquire and operate. Here's exactly what that looks like.
+      </p>
+
+      <div class="criteria-grid">
+
+        <div class="criterion">
+          <div class="criterion-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <div>
+            <div class="criterion-label">Established and profitable</div>
+            <div class="criterion-desc">Not a turnaround. The business is already working — it just hasn't been fully optimized. Good bones, loyal customers, real cash flow.</div>
+          </div>
+        </div>
+
+        <div class="criterion">
+          <div class="criterion-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+          </div>
+          <div>
+            <div class="criterion-label">20–40 employees with a team in place</div>
+            <div class="criterion-desc">Enough organizational complexity that leadership matters. Management or a strong #2 already on the ground — not a business that collapses when the owner leaves.</div>
+          </div>
+        </div>
+
+        <div class="criterion">
+          <div class="criterion-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3z"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          </div>
+          <div>
+            <div class="criterion-label">Recurring or repeat revenue</div>
+            <div class="criterion-desc">Contracts, subscriptions, or deeply embedded customer relationships. Not a project-by-project or hourly billing model. Customers come back.</div>
+          </div>
+        </div>
+
+        <div class="criterion">
+          <div class="criterion-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <div class="criterion-label">A founder ready for what's next</div>
+            <div class="criterion-desc">I'm looking for someone who built something real and is starting to think about the next chapter — not a distressed exit. The business should reflect what they've built.</div>
+          </div>
+        </div>
+
+        <div class="criterion">
+          <div class="criterion-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="criterion-label">BC-based, or remote-operable</div>
+            <div class="criterion-desc">I'm based in Lions Bay. Sea to Sky corridor and Metro Vancouver / North Shore are the natural territory. Open to remote-operable businesses further afield.</div>
+          </div>
+        </div>
+
+        <div class="criterion">
+          <div class="criterion-icon">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div>
+            <div class="criterion-label">A clear path to growth</div>
+            <div class="criterion-desc">There should be obvious opportunities the current owner hasn't fully pursued — technology modernization, systems improvement, customer experience, or new channels. That's where I create value.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-label">Get in Touch</div>
+      <h2 class="section-heading">Let's talk.</h2>
+      <p class="contact-body">
+        If you represent a business that fits, or you know someone who might — I'd genuinely appreciate an introduction. I respond personally to every message.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:david@udow.com" class="contact-link contact-link-email">
+          <svg viewBox="0 0 24 24" stroke="currentColor">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          david@udow.com
+        </a>
+        <a href="https://linkedin.com/in/davidudow" target="_blank" rel="noopener" class="contact-link contact-link-linkedin">
+          <svg viewBox="0 0 24 24" stroke="currentColor">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 David Udow · Lions Bay, BC · <a href="mailto:david@udow.com" style="color: inherit;">david@udow.com</a></p>
+  </footer>
+
+</body>
+</html>

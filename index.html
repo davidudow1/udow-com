@@ -400,9 +400,120 @@
       #hero { padding-top: 64px; padding-bottom: 64px; }
       .career-grid { grid-template-columns: 1fr 1fr; }
     }
+
+    /* ── PASSWORD OVERLAY ── */
+    #pw-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pw-box {
+      background: #fff;
+      border-radius: 14px;
+      padding: 44px 40px;
+      max-width: 360px;
+      width: 90%;
+      text-align: center;
+    }
+
+    .pw-box svg {
+      display: block;
+      margin: 0 auto 20px;
+    }
+
+    .pw-box h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+      letter-spacing: -0.02em;
+    }
+
+    .pw-box p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+
+    #pw-input {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-size: 15px;
+      font-family: inherit;
+      outline: none;
+      margin-bottom: 12px;
+      transition: border-color 0.15s;
+    }
+
+    #pw-input:focus { border-color: var(--navy); }
+
+    #pw-btn {
+      width: 100%;
+      padding: 11px;
+      background: var(--navy);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    #pw-btn:hover { background: var(--navy-light); }
+
+    #pw-error {
+      color: #ef4444;
+      font-size: 13px;
+      margin-top: 12px;
+      display: none;
+    }
   </style>
 </head>
 <body>
+
+  <!-- PASSWORD OVERLAY -->
+  <div id="pw-overlay">
+    <div class="pw-box">
+      <svg width="52" height="52" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <circle fill="#1B3F7A" cx="100" cy="100" r="100"/>
+        <text x="46.7" y="149" fill="#FFFFFF" font-family="Arial Black, Arial" font-weight="900" font-size="128">U</text>
+      </svg>
+      <h2>David Udow</h2>
+      <p>Preview access required</p>
+      <input id="pw-input" type="password" placeholder="Password" autocomplete="off" />
+      <button id="pw-btn" onclick="checkPw()">Enter</button>
+      <div id="pw-error">Incorrect password. Try again.</div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      if (sessionStorage.getItem('udow_preview') === 'ok') {
+        document.getElementById('pw-overlay').style.display = 'none';
+      }
+    })();
+    function checkPw() {
+      if (document.getElementById('pw-input').value === 'preview2026') {
+        sessionStorage.setItem('udow_preview', 'ok');
+        document.getElementById('pw-overlay').style.display = 'none';
+      } else {
+        document.getElementById('pw-error').style.display = 'block';
+        document.getElementById('pw-input').focus();
+      }
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && document.getElementById('pw-overlay').style.display !== 'none') checkPw();
+    });
+  </script>
 
   <!-- NAV -->
   <nav>
@@ -431,8 +542,8 @@
         <span class="hero-eyebrow-text">Udow Ventures</span>
       </div>
       <h1 class="hero-name">David Udow</h1>
-      <p class="hero-tagline">Serial entrepreneur. Proven operator.<br>Looking to acquire my next business.</p>
-      <p class="hero-sub">Thirty years founding, acquiring, and building businesses across BC. I take well-run companies and make them significantly better — through systems, culture, and customer experience.</p>
+      <p class="hero-tagline">Serial entrepreneur. Proven operator.<br>Ready to take on the right business.</p>
+      <p class="hero-sub">Thirty years founding, acquiring, and operating businesses in BC. I've built companies from nothing and I've acquired and scaled established ones. Either way, the outcome I'm working toward is the same: an organization significantly better than the one I started with.</p>
       <div class="hero-divider"></div>
     </div>
   </section>
@@ -444,16 +555,16 @@
       <h2 class="section-heading">Operator. Builder. Acquirer.</h2>
       <div class="prose">
         <p>
-          In 2000, I co-founded <strong>Ziptrek Ecotours</strong> in Whistler from scratch — no infrastructure, no playbook, no team. We built it into one of the most recognized adventure tourism brands in North America. By the time I transitioned to the board in 2012, the company had grown to over 100 seasonal employees and was running profitably without daily founder involvement. That's what I build toward: organizations that run well without depending on any single person. I remain an active Board Director and shareholder today.
+          In 2000, I co-founded <strong>Ziptrek Ecotours</strong> in Whistler with nothing but an idea — no infrastructure, no team, no playbook. We built it into one of the most recognized adventure tourism brands in North America, with operations spanning Whistler and Queenstown, New Zealand. Over 150 employees. Profitable. Running without founder dependency. I transitioned to the Board in 2012 and remain an active Director and shareholder today.
         </p>
         <p>
-          In 2014, I acquired <strong>Pink Solution</strong>, an eco-friendly consumer cleaning brand sold nationally across Canada. I rebuilt the operating model, tripled revenue through product expansion and channel development, and executed a full exit in 2021.
+          In 2014, I acquired <strong>Pink Solution</strong>, an eco-friendly consumer cleaning brand sold nationally across Canada. I rebuilt the operating model, tripled revenue through product and channel expansion, and executed a full exit in 2021.
         </p>
         <p>
-          Most recently, I served as Integrator (COO) at <strong>Jetstream Hospitality Solutions</strong>, a Vancouver-based hospitality SaaS company, where I owned all operational functions during a period of restructuring and sale preparation. I built company-wide accountability systems, rebuilt customer onboarding, and led the team through a sustained period of margin improvement.
+          Most recently, I served as Integrator (COO) at <strong>Jetstream Hospitality Solutions</strong>, a Vancouver-based hospitality SaaS company. I owned all operational functions — customer onboarding, account management, customer success, sales, and marketing — and built the systems and team structure to support sustainable growth.
         </p>
         <p>
-          Through <strong>Udow Ventures</strong>, I now hold and manage this portfolio while actively seeking my next acquisition. My edge is making good organizations significantly better — not rescuing broken ones or building new ones from scratch.
+          Through <strong>Udow Ventures</strong>, I hold and manage this portfolio while actively seeking my next acquisition. I've been a founder, an acquirer, and an operator inside someone else's business. Right now I'm looking for the right established business to run — and I know what to do with one when I find it.
         </p>
       </div>
 
@@ -488,7 +599,7 @@
       <div class="section-label">What I'm Looking For</div>
       <h2 class="section-heading">The right business to run and grow.</h2>
       <p class="lf-intro">
-        I'm looking for a BC-based business to acquire and operate. Here's exactly what that looks like.
+        I'm looking to take on a business in Greater Vancouver or the Sea to Sky corridor — Pemberton to Burnaby — and run it well. Here's what that looks like.
       </p>
 
       <div class="criteria-grid">
@@ -508,8 +619,8 @@
             <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
           </div>
           <div>
-            <div class="criterion-label">20–40 employees with a team in place</div>
-            <div class="criterion-desc">Enough organizational complexity that leadership matters. Management or a strong #2 already on the ground — not a business that collapses when the owner leaves.</div>
+            <div class="criterion-label">20–50 employees with a team in place</div>
+            <div class="criterion-desc">Enough organizational complexity that leadership matters. A management layer or strong #2 already on the ground — not a business that collapses when the owner steps back.</div>
           </div>
         </div>
 
@@ -519,7 +630,7 @@
           </div>
           <div>
             <div class="criterion-label">Recurring or repeat revenue</div>
-            <div class="criterion-desc">Contracts, subscriptions, or deeply embedded customer relationships. Not a project-by-project or hourly billing model. Customers come back.</div>
+            <div class="criterion-desc">Contracts, subscriptions, or deeply embedded customer relationships. Not project-by-project. Customers come back.</div>
           </div>
         </div>
 
@@ -529,7 +640,7 @@
           </div>
           <div>
             <div class="criterion-label">A founder ready for what's next</div>
-            <div class="criterion-desc">I'm looking for someone who built something real and is starting to think about the next chapter — not a distressed exit. The business should reflect what they've built.</div>
+            <div class="criterion-desc">I want to see every deal — a founder-led transition, a partner buyout, a succession without an obvious heir. I don't need a distressed situation, but I'm not waiting for one either. If you have something worth looking at, reach out. I can always say no.</div>
           </div>
         </div>
 
@@ -538,8 +649,8 @@
             <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
           <div>
-            <div class="criterion-label">BC-based, or remote-operable</div>
-            <div class="criterion-desc">I'm based in Lions Bay. Sea to Sky corridor and Metro Vancouver / North Shore are the natural territory. Open to remote-operable businesses further afield.</div>
+            <div class="criterion-label">Greater Vancouver or Sea to Sky</div>
+            <div class="criterion-desc">I'm based in Lions Bay — right on the corridor between Whistler and Vancouver. Pemberton to Burnaby is my natural territory. Open to remote-operable businesses further afield.</div>
           </div>
         </div>
 
@@ -549,7 +660,7 @@
           </div>
           <div>
             <div class="criterion-label">A clear path to growth</div>
-            <div class="criterion-desc">There should be obvious opportunities the current owner hasn't fully pursued — technology modernization, systems improvement, customer experience, or new channels. That's where I create value.</div>
+            <div class="criterion-desc">There should be obvious opportunities the current owner hasn't fully pursued — technology, systems, customer experience, new channels. That's where I create value.</div>
           </div>
         </div>
 
@@ -563,7 +674,7 @@
       <div class="section-label">Get in Touch</div>
       <h2 class="section-heading">Let's talk.</h2>
       <p class="contact-body">
-        If you represent a business that fits, or you know someone who might — I'd genuinely appreciate an introduction. I respond personally to every message.
+        If you're representing a business that fits, or you know someone who might be ready for a conversation — I'd genuinely appreciate an introduction. I respond personally to every message.
       </p>
       <div class="contact-links">
         <a href="mailto:david@udow.com" class="contact-link contact-link-email">
